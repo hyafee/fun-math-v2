@@ -4,15 +4,11 @@ namespace App\Http\Livewire;
 
 use App\Models\Quiz;
 use App\Models\User;
-use App\Models\Category;
 use App\Actions\DeleteQuiz;
 use LaravelViews\Views\TableView;
 use LaravelViews\Facades\UI;
 use LaravelViews\Views\Traits\WithAlerts;
-use App\Filters\CategoryFilter;
 use LaravelViews\Facades\Header;
-
-
 
 class QuizTableView extends TableView
 {
@@ -35,7 +31,7 @@ class QuizTableView extends TableView
             'ID',
             'Question*',
             'Answer*',
-            'Category',
+            'Choices',
             Header::title('Updated')->sortBy('updated_at'),
         ];    }
 
@@ -46,13 +42,11 @@ class QuizTableView extends TableView
      */
     public function row($model): array
     {
-        $category = Category::find($model->category_id);
-
         return [
             $model->id,
             UI::editable($model, 'question'),
             UI::editable($model, 'answer'),
-            $category->name,
+            UI::editable($model, 'choices'),
             $model->updated_at,
 
         ];
@@ -68,13 +62,6 @@ class QuizTableView extends TableView
     {
         return [
             new DeleteQuiz,
-        ];
-    }
-
-    protected function filters()
-    {
-        return [
-            new CategoryFilter,
         ];
     }
 

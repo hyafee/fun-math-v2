@@ -11,12 +11,7 @@ class Quiz extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['question', 'answer', 'choices', 'category_id'];
-
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
+    protected $fillable = ['question', 'answer', 'choices'];
 
     public function getQuestionAttribute()
     {
@@ -32,12 +27,5 @@ class Quiz extends Model
     {
         return $this->delete();
     }
-
-    public function category_id($query, $categoryId)
-{
-    return $query->whereHas('category', function ($query) use ($categoryId) {
-        $query->where('id', $categoryId);
-    });
-}
 
 }
