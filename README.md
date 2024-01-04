@@ -1,4 +1,3 @@
-Tentu, berikut adalah contoh isi file `readme.md` untuk aplikasi Laravel bernama "fun-math" beserta perintah instalasi dan menjalankan aplikasi:
 
 ```markdown
 # Fun Math - Aplikasi Laravel
