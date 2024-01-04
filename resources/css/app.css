@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+table {
+    color: black;
+    background-color: white;
+}
+
+table th {
+    color: white;
+    background-color: #26C8BC;
+}
+
+.space-x-1 button {
+    background-color: #fff;
+    margin-top: 12px;
+    margin-right: 0;
+}
+
+nav .leading-5 span {
+    color: white;
+}
